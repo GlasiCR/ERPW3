@@ -1,16 +1,9 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const api = axios.create({
     baseURL: "https://api.predict.app.br"
 })
 
-// const api = axios.create({
-//        baseURL: import.meta.env.VITE_API_BASE_URL,
-//        headers: {
-//          "x-api-key": import.meta.env.VITE_API_KEY,
-//          "content-type": "application/json",
-//        },
-// })
 export const useLoginApi = () => ({ 
     login: async (email: string, senha: string) => {
         const response = await api.post(`/central/autenticacao/login`, {

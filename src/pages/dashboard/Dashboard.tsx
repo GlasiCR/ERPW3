@@ -1,8 +1,6 @@
 import KpiCard from "../../components/KpiCard"
 import TableContainer from "../../components/tableContainer"
 import HeaderPages from "../../components/headerPages"
-import IProd from "../../images/iconsPagesLoged/iprod.svg"
-import ICustomer from "../../images/iconsPagesLoged/icustomer.svg"
 import IArrowRight from "../../images/iconsPagesLoged/iarrowright.png"
 import * as S from './styles'
 import Table from "../../components/table"
@@ -17,7 +15,8 @@ import * as T from "../../types/DashTypes"
 import { Link } from "react-router-dom"
 import Graphic from "../../components/graphic"
 import DivSearchPeriod from "../../components/divSearchPeriod"
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import IProdIcon from "../../images/iconsPagesLoged/iprod"
+import ICustomer from "../../images/iconsPagesLoged/icustomer"
 
 export default function Dashboard() {
   const [initialLoadingClient, setInitialLoadinClient] = useState(false)
@@ -89,7 +88,7 @@ export default function Dashboard() {
           percentageKpi={resume?.percentualTotalProdutosAlta}
           graphic={<Graphic 
             valueApi={resume?.percentualTotalProdutosAlta}
-            valueDifference={100 - resume?.percentualTotalProdutosAlta}
+            valueDifference={(100 - (resume?.percentualTotalProdutosAlta ?? 0))}
           />}
           >
           <DivPercentCardKpi
@@ -105,7 +104,7 @@ export default function Dashboard() {
           percentageKpi={resume?.percentualTotalProdutosBaixa}
           graphic={<Graphic 
             valueApi={resume?.percentualTotalProdutosBaixa}
-            valueDifference={100 - resume?.percentualTotalProdutosBaixa}
+            valueDifference={(100 - (resume?.percentualTotalProdutosBaixa ?? 0))}
           />} 
         >
           <DivPercentCardKpi
@@ -121,7 +120,7 @@ export default function Dashboard() {
           percentageKpi={resume?.percentualTotalClientesAlta}
           graphic={<Graphic 
             valueApi={resume?.percentualTotalClientesAlta}
-            valueDifference={100 - resume?.percentualTotalClientesAlta}
+            valueDifference={(100 - (resume?.percentualTotalClientesAlta ?? 0))}
           />} 
         >
           <DivPercentCardKpi
@@ -137,7 +136,7 @@ export default function Dashboard() {
           percentageKpi={resume?.percentualTotalClientesBaixa}
           graphic={<Graphic 
             valueApi={resume?.percentualTotalClientesBaixa}
-            valueDifference={100 - resume?.percentualTotalClientesBaixa}
+            valueDifference={(100 - (resume?.percentualTotalClientesBaixa ?? 0))}
           />}
         >
           <DivPercentCardKpi
@@ -149,7 +148,7 @@ export default function Dashboard() {
       <S.ContainerInformations>
         <>
           <TableContainer
-            iconTable={IProd}
+            iconTable={<IProdIcon />}
             titleTable="Produtos"
             descriptionImage="Ícone que representa informações de Produtos"
             backgroundColor="#C5CFFF"
@@ -181,7 +180,7 @@ export default function Dashboard() {
         </>
         <>
           <TableContainer
-            iconTable={ICustomer}
+            iconTable={<ICustomer />}
             titleTable="Clientes"
             descriptionImage="Ícone que representa informações de Clientes"
             backgroundColor="#001C98"

@@ -50,7 +50,7 @@ export default function HeaderTemplate() {
                 <S.ContainerUserLogin>
                     <S.ImgUserAvatar src={User} />
                     <MenuLoginUser 
-                        email={infoUserLogged?.email}
+                        email={infoUserLogged ? infoUserLogged.email ?? "-" : "Carregando"}
                         nome={infoUserLogged?.nome}
                     />
                 </S.ContainerUserLogin>

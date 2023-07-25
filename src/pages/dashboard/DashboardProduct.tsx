@@ -22,9 +22,9 @@ export default function DashboardProduct(){
 
     useEffect(() => {
         const loadData = async () => {
-            const dataDown = await ClientDownPerProduct(id)
+            const dataDown = await ClientDownPerProduct(id!)
             setClientDownPerProduct(dataDown)
-            const dataUp = await ClientUpPerProduct(id)
+            const dataUp = await ClientUpPerProduct(id!)
             setClientUpPerProduct(dataUp)
         }
         loadData();
@@ -32,7 +32,7 @@ export default function DashboardProduct(){
 
     useEffect(() => {
         const loadData = async () => {
-            const resume = await ResumeProduct(id)
+            const resume = await ResumeProduct(id!)
             setResumeProduct(resume)
             console.log(resume)
         }
@@ -48,7 +48,7 @@ export default function DashboardProduct(){
                 />
             </S.UnderlinedLink>
             <HeaderPages
-                title={resumeProduct?.nome}
+                title={resumeProduct ? resumeProduct.nome ?? "Nome não definido" : "Carregando"}
                 colorTitle= {color.primary}
                 bgColor="transparent"
             >
@@ -68,7 +68,7 @@ export default function DashboardProduct(){
             >
                 <DivPercentCardKpi
                     numberPercentageKPI={resumeProduct?.percentualUltimos30Dias}
-                    backgroundColor={resumeProduct?.percentualUltimos30Dias > 0 ? color.success : color.failure}
+                    backgroundColor={resumeProduct?.percentualUltimos30Dias ?? 0 > 0 ? color.success : color.failure}
                 />
             </KpiCard>
             <KpiCard 

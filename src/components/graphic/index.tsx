@@ -1,4 +1,4 @@
-import { PieChart, Pie, Label, LabelList } from "recharts";
+import { PieChart, Pie, Label } from "recharts";
 
 type Props ={
   valueApi?: number,
@@ -12,7 +12,6 @@ export default function Graphic({valueApi, valueDifference}: Props) {
     fontWeight: 400,
     lineHeight: '140%',
     fontFamily: 'Poppins',
-    textAlign: 'center',
   }
 
   return (
@@ -30,10 +29,9 @@ export default function Graphic({valueApi, valueDifference}: Props) {
         dataKey="value"
         stroke="none" 
         cornerRadius={10}  
-      >
-          
+      >  
           <Label
-          value={valueApi}
+          value={String(valueApi)}
           position="center"
           content={({ value }) => (
             <text x={53} y={60} dy={8} textAnchor="middle" style={labelStyle}>

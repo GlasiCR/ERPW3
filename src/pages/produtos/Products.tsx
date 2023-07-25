@@ -49,32 +49,6 @@ export default function Products() {
         }
         productList()
     }, [pageCurrent, stateFilter, searchFor, quantityItemsTotal])
-    
-    // useEffect(() => {
-    //     const allItemsList = async () => {
-    //         const dataRequest = await Req.RequestTotalItems(pageCurrent)
-    //         const lengthList = dataRequest.totalElements
-    //         setQuantityItemsTotal(lengthList)
-    //         if((pageCurrent+1) * 10 < quantityItemsTotal){
-    //             setQuantityActual((pageCurrent+1) * 10)
-    //         } else {
-    //             setQuantityActual(quantityItemsTotal)
-    //         }
-    //     }
-    //     allItemsList()
-    // }, [pageCurrent])
-
-    function teste() {
-        setIsLoading(true)
-        console.log("teste")
-    }
-    // useEffect(() => {
-    //     const productList = async () => {
-    //         const filterProducts = await Req.FilterListProducts(stateFilter)
-    //         setListAllProducts(filterProducts)
-    //     }
-    //     productList()
-    // }, [stateFilter])
 
     function formatText(status: string) {
         if (status === "NEUTRO") {
@@ -101,7 +75,7 @@ export default function Products() {
     function advance(){
         setPageCurrent(pageCurrent+1)
     }
-    function handleOptionSelected(event){
+    function handleOptionSelected(event: React.ChangeEvent<HTMLInputElement>){
         setStateFilter(event.target.value)
         console.log(stateFilter)
     }
@@ -127,10 +101,8 @@ export default function Products() {
                 >
                     {checkbox && (
                         <FilterProducts
-                            onClick={teste}
                             button={<ButtonDefault 
                                     textButton={!isLoading ? "Aplicar" : ""}
-                                    onClick={teste}
                                     disabled={isLoading}
                                     backgroundColor={!isLoading ? `${color.primary}` : "transparent"}
                                     />}

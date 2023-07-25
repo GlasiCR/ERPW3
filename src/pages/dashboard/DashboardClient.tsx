@@ -22,9 +22,9 @@ export default function DashboardClient() {
 
     useEffect(() => {
         const loadData = async () => {
-            const dataUp = await ProductsUpPerClient(id)
+            const dataUp = await ProductsUpPerClient(id!)
             setProductUpPerClient(dataUp)
-            const dataDown = await ProductsDownPerClient(id)
+            const dataDown = await ProductsDownPerClient(id!)
             setProductDownPerClient(dataDown)
         }
         loadData();
@@ -32,7 +32,7 @@ export default function DashboardClient() {
 
     useEffect(() => {
         const loadData = async () => {
-            const resume = await ResumeClient(id)
+            const resume = await ResumeClient(id!)
             setResumeClient(resume)
         }
         loadData();
@@ -46,7 +46,7 @@ export default function DashboardClient() {
                 />
             </S.UnderlinedLink>
             <HeaderPages
-                title={resumeClient?.nome}
+                title={resumeClient ? resumeClient.nome ?? "Nome não definido" : "Carregando"}
                 colorTitle={color.primary}
                 bgColor="transparent"
             >
@@ -66,7 +66,7 @@ export default function DashboardClient() {
                 >
                     <DivPercentCardKpi
                         numberPercentageKPI={resumeClient?.percentualUltimos30Dias}
-                        backgroundColor={resumeClient?.percentualUltimos30Dias > 0 ? color.success : color.failure}
+                        backgroundColor={resumeClient?.percentualUltimos30Dias ?? 0 > 0 ? color.success : color.failure}
                     />
                 </KpiCard>
                 <KpiCard

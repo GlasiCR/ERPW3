@@ -68,9 +68,9 @@ export default function LoginScreen(){
                     
                     <S.DivBelowForm>
                         <CheckboxInput 
-                            nameId="rememberMe"
-                            textLabel="Lembrar-me"
-                            typeInput='checkbox'
+                                textLabel="Lembrar-me"
+                                typeInput='checkbox' 
+                                value={"rememberMe"}                        
                         />
                         <S.TextRememberPassword>Esqueci minha senha</S.TextRememberPassword>
                     </S.DivBelowForm>

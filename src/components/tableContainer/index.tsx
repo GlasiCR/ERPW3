@@ -2,7 +2,7 @@ import { MouseEventHandler } from "react";
 import * as S from "./styles";
 
 type Props = {
-    iconTable?: string,
+    iconTable?: string | React.ReactNode,
     titleTable?: string,
     onClick?: MouseEventHandler<HTMLButtonElement>,
     children?: React.ReactNode,

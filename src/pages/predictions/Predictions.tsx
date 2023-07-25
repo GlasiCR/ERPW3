@@ -71,11 +71,10 @@ export default function Predictions() {
                     {cardPredictions.map((item, id) => (
                         <PredictionsCard
                             nameCustomer={item.nome}
-                            statusCustomer ={formatText(item.classificacao)}
+                            statusCustomer={formatText(item.classificacao) ?? "Status não definido"}
                             color={item.classificacao > "EM_ALTA" ? color.failure : color.success}
                             route={`/dashboard/predicoes/${item.id}`}
-                            key={id}
-                        >
+                            key={id} nameProduct={""} dateLastBuy={""}                    >
                             <S.Ttable>
                                 <S.TitleColumn>
                                     <tr>

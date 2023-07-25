@@ -56,14 +56,13 @@ export default function PredictionsClient(){
                 />
             </S.UnderlinedLink>
             <HeaderPages
-                title={contactClient?.nome}
+                title={contactClient ? contactClient.nome ?? "Nome não definido" : "Carregando"}
                 margin-top=""
                 
             >
                 <ClientContact
-                    emailAddress={contactClient?.email}
-                    phoneNumber={contactClient?.telefone}
-                    
+                    emailAddress={contactClient ?contactClient.email ?? "-" : "Carregando"}
+                    phoneNumber={contactClient ? contactClient.telefone ?? "-" : "Carregando"}   
                 />
             </HeaderPages>
             <S.ContainerInformations>
