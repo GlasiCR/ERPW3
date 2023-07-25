@@ -15,8 +15,8 @@ import * as T from "../../types/DashTypes"
 import { Link } from "react-router-dom"
 import Graphic from "../../components/graphic"
 import DivSearchPeriod from "../../components/divSearchPeriod"
-import IProdIcon from "../../images/iconsPagesLoged/iprod"
-import ICustomer from "../../images/iconsPagesLoged/icustomer"
+import IProdIcon from "../../images/iconsPagesLoged/iprod.svg"
+import ICustomer from "../../images/iconsPagesLoged/icustomer.svg"
 
 export default function Dashboard() {
   const [initialLoadingClient, setInitialLoadinClient] = useState(false)
@@ -148,7 +148,7 @@ export default function Dashboard() {
       <S.ContainerInformations>
         <>
           <TableContainer
-            iconTable={<IProdIcon />}
+            iconTable={IProdIcon}
             titleTable="Produtos"
             descriptionImage="Ícone que representa informações de Produtos"
             backgroundColor="#C5CFFF"
@@ -180,7 +180,7 @@ export default function Dashboard() {
         </>
         <>
           <TableContainer
-            iconTable={<ICustomer />}
+            iconTable={ICustomer}
             titleTable="Clientes"
             descriptionImage="Ícone que representa informações de Clientes"
             backgroundColor="#001C98"

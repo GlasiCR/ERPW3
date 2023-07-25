@@ -22,14 +22,14 @@ export default function Products() {
     const [pageCurrent, setPageCurrent] = useState(0)
     const [quantityItemsTotal, setQuantityItemsTotal] = useState(0)
     const [quantityItemsActual, setQuantityActual] = useState(10)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading] = useState(false)
     const [stateFilter, setStateFilter] = useState('')
 
-    const lengthList = listAllProducts.length
+   
     const quantitiesButtons = 4
-    const quantButtonsRight = 3
-    const totalPages = Math.ceil(1822 / 10)
-    const lastButton = Math.max(pageCurrent + quantButtonsRight, totalPages)
+    //const quantButtonsRight = 3
+    // const totalPages = Math.ceil(1822 / 10)
+
 
     const showFilter = () => {
         setCheckbox(prev => !prev)
