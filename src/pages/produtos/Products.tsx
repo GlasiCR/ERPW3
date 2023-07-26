@@ -64,7 +64,7 @@ export default function Products() {
         const resultSearch = await Search(searchFor)
         setListAllProducts(resultSearch)
     }
-    async function funcaoRequisicao(page: number){
+    async function changePage(page: number){
         const listCompleteProducts = await Req.ListAllProducts(page, stateFilter )
         setPageCurrent(page)
         setListAllProducts(listCompleteProducts.content)
@@ -77,7 +77,7 @@ export default function Products() {
     }
     function handleOptionSelected(event: React.ChangeEvent<HTMLInputElement>){
         setStateFilter(event.target.value)
-        console.log(stateFilter)
+        setCheckbox(false)
     }
 
     return (
@@ -111,7 +111,7 @@ export default function Products() {
                                 textLabel='Todos'
                                 typeInput='radio'
                                 value=""
-                                checked
+                                
                                 onChange={handleOptionSelected}
                             />
                             <CheckboxInput
@@ -153,7 +153,6 @@ export default function Products() {
                             </tr>
                             
                         ))}
-
                     </Table>
                     <Pagination
                         lengthList={quantityItemsTotal}
@@ -161,8 +160,6 @@ export default function Products() {
                         backPage={goBack}
                         disabledToBack={pageCurrent === 0}
                         nextPage={advance}
-                        //backPage={() => voltar(pageCurrent-1)}
-                        //nextPage={() => nextPage(pageCurrent-1)}
                     >
                         <S.UlPagination>
                             {Array.from({ length: Math.min(quantitiesButtons) })
@@ -171,7 +168,7 @@ export default function Products() {
                                     <S.UlPagination key={page}>
                                         <S.PageActul
                                             isActive={page === pageCurrent}
-                                            onClick={() => funcaoRequisicao(page)}
+                                            onClick={() => changePage(page)}
                                         >
                                             {/* API starts paging at 0, so it is necessary to add 1 to the number that will be rendered */}
                                             {page + 1}

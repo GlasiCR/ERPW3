@@ -13,6 +13,7 @@ import { ProductsUpPerClient, ProductsDownPerClient } from "../../services/dashC
 import * as T from "../../types/DashTypes"
 import { ResumeClient } from "../../services/dashClient/ResumeClientGet";
 import DivPercentCardKpi from "../../components/divPercentCardKpi";
+import MsgArrayEmpty from "../../components/msgArrayEmpty";
 
 export default function DashboardClient() {
     const { id } = useParams()
@@ -46,14 +47,14 @@ export default function DashboardClient() {
                 />
             </S.UnderlinedLink>
             <HeaderPages
-                title={resumeClient ? resumeClient.nome ?? "Nome não definido" : "Carregando"}
+                title={resumeClient ? resumeClient.nome ?? "Nome do Cliente não cadastrado" : "Carregando"}
                 colorTitle={color.primary}
                 bgColor="transparent"
             >
-                <KpiCard 
-                    firstPieceOfTitle="Média 120 dias" 
-                    numberKpi={resumeClient?.media120Dias} 
-                    width="20%" 
+                <KpiCard
+                    firstPieceOfTitle="Média 120 dias"
+                    numberKpi={resumeClient?.media120Dias}
+                    width="20%"
                 />
                 <KpiCard
                     firstPieceOfTitle="Últimos 30 dias"
@@ -102,18 +103,22 @@ export default function DashboardClient() {
                         descriptionImage="Ícone seta para baixo representando informações de produtos em baixa"
                         backgroundColor={color.failure}
                     >
-                        <Table
-                            header={["ID", "Produtos", "Percentual", "Qtd"]}
-                        >
-                            {productDownPerClient.map((item) => (
-                                <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td>{item.nome}</td>
-                                    <td>{item.percentual}</td>
-                                    <td>{item.quantidade}</td>
-                                </tr>
-                            ))}
-                        </Table>
+                        {productDownPerClient.length === 0 ? (
+                            <MsgArrayEmpty />
+                        ) : (
+                            <Table
+                                header={["ID", "Produtos", "Percentual", "Qtd"]}
+                            >
+                                {productDownPerClient.map((item) => (
+                                    <tr key={item.id}>
+                                        <td>{item.id}</td>
+                                        <td>{item.nome}</td>
+                                        <td>{item.percentual}</td>
+                                        <td>{item.quantidade}</td>
+                                    </tr>
+                                ))}
+                            </Table>
+                        )}
                     </TableContainer>
                 </>
                 <>
@@ -123,18 +128,22 @@ export default function DashboardClient() {
                         descriptionImage="Ícone seta para baixo representando informações de produtos em alta"
                         backgroundColor={color.success}
                     >
-                        <Table
-                            header={["ID", "Produtos", "Percentual", "Qtd"]}
-                        >
-                            {productUpPerClient.map((item) => (
-                                <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td>{item.nome}</td>
-                                    <td>{item.percentual}</td>
-                                    <td>{item.quantidade}</td>
-                                </tr>
-                            ))}
-                        </Table>
+                        {productDownPerClient.length === 0 ? (
+                            <MsgArrayEmpty />
+                        ) : (
+                            <Table
+                                header={["ID", "Produtos", "Percentual", "Qtd"]}
+                            >
+                                {productUpPerClient.map((item) => (
+                                    <tr key={item.id}>
+                                        <td>{item.id}</td>
+                                        <td>{item.nome}</td>
+                                        <td>{item.percentual}</td>
+                                        <td>{item.quantidade}</td>
+                                    </tr>
+                                ))}
+                            </Table>
+                        )}
                     </TableContainer>
                 </>
             </S.ContainerInformations>

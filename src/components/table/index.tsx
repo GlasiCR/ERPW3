@@ -7,8 +7,6 @@ type TableProps = {
 }
   
 export default function Table({header, children, paddingLeft}: TableProps){
-  
-
   return (
     <S.ContainerTable>
       <S.Thead>

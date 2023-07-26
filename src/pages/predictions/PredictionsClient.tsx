@@ -56,7 +56,7 @@ export default function PredictionsClient(){
                 />
             </S.UnderlinedLink>
             <HeaderPages
-                title={contactClient ? contactClient.nome ?? "Nome não definido" : "Carregando"}
+                title={contactClient ? contactClient.nome ?? "Nome não cadastrado" : "Carregando"}
                 margin-top=""
                 
             >
