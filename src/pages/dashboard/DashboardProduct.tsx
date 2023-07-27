@@ -35,7 +35,6 @@ export default function DashboardProduct() {
         const loadData = async () => {
             const resume = await ResumeProduct(id!)
             setResumeProduct(resume)
-            console.log(resume)
         }
 
         loadData();

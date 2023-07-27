@@ -31,12 +31,11 @@ export default function LoginScreen(){
     
     function handleChange(event: React.ChangeEvent<HTMLInputElement>){
         setDataLogin({...dataLogin, [event?.target.name]: event.target.value})
-        console.log(dataLogin)
     }
 
     async function login(){
         if(!dataLogin.email || !dataLogin.senha){
-            console.log("todos os campos deve estar preenchidos")
+            window.alert("Todos os campos devem estar preenchidos")
             return 
         } 
         try{
@@ -45,7 +44,8 @@ export default function LoginScreen(){
             navigate('dashboard')
         }
         catch(err){
-            console.log("dados inválidos")
+            window.alert("Dados inválidos")
+            setGifLoading(false)
         }         
     }
 
