@@ -10,13 +10,4 @@ const api = axios.create({
         'Authorization': `Bearer ${token}`,
     }
 })
-
 export default api
-
-// # const instance = axios.create({
-//     #   baseURL: import.meta.env.VITE_API_BASE_URL,
-//     #   headers: {
-//     #     "x-api-key": import.meta.env.VITE_API_KEY,
-//     #     "content-type": "application/json",
-//     #   },
-//     # })
