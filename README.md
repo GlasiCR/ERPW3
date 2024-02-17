@@ -30,5 +30,5 @@ Para acessar a documentação do projeto [clique aqui](https://backend-culture-c
 Para visualizar o diagrama da aplicação [clique aqui](https://github.com/arnia-linkcom-gamification/Backend-Culture-Code/assets/116851717/6b4bd259-786a-4705-858a-f065bbcf8fb1)	
 
 # Testes
-Para rodar os testes:
+Para rodar os testes:<br>
 `npm test`
