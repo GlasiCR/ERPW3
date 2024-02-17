@@ -15,11 +15,11 @@ O propósito da aplicação Gamification é oferecer um sistema às empresas pel
 Rodar comando:
 `npm install`
 
-Rodar projeto.
-Rodar no modo de desenvolvimento:
+# Rodar projeto
+###### Rodar no modo de desenvolvimento:
 `npm run start:dev`
 
-# Modo de produção
+###### Modo de produção
 `npm run build`<br>
 `npm run start:prod`
 
