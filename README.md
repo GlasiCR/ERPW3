@@ -2,8 +2,8 @@
 O propósito da aplicação Gamification é oferecer um sistema às empresas pelo qual ela poderá oferecer bonificação aos seus funcionários pelo desempenho profissional. O administrador/RH atribui créditos aos funcionários de acordo com a sua performance e estes por sua vez poderão realizar resgates de produtos conforme o saldo de créditos que possui.
 
 # Tecnologias
-•	Nestjs: Utilizado como framework backend, trabalhando por debaixo dos panos com Nodejs e Express;<br>
-•	Postgresql: Banco de dados relacional utilizado para armazenar informações do projeto;<br>
+•	<b>Nestjs</b>: Utilizado como framework backend, trabalhando por debaixo dos panos com Nodejs e Express;<br>
+•	<b>Postgresql</b>: Banco de dados relacional utilizado para armazenar informações do projeto;<br>
 •	TypeORM: ORM utilizado para comunicação com banco de dados;<br>
 •	Swagger: Utilizado para documentação de rotas e seus métodos atrelados juntamente com os respectivos payloads;<br>
 •	Class-Validator: Usado para validações de payloads da aplicação;<br>
